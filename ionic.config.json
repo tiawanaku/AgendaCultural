@@ -1,0 +1,7 @@
+{
+  "name": "AgendaCultural",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
