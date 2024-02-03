@@ -7,20 +7,22 @@ const ResultadosPage: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get('http://104.248.12.189:1337/api/meventos')
+    // Actualiza la URL para usar el prefijo del proxy
+    axios.get('/api/meventos')
       .then(response => {
-        console.log('Respuesta del servidor:', response.data); // Agrega este console.log
-        setEventos(response.data.data);
+        console.log('Respuesta del servidor:', response.data); // Confirma en consola
+        // Asegúrate de ajustar el acceso a 'data' según la estructura de tu respuesta
+        setEventos(response.data.data); 
       })
       .catch(error => {
-        console.error('Error al cargar eventos', error);
+        console.error('Error al cargar eventos', error); // Captura y registra errores
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(false); // Finaliza el indicador de carga
       });
-  }, []);
+  }, []); // Dependencias vacías para ejecutar solo una vez
 
-  console.log('eventos:', eventos); // Agrega este console.log
+  console.log('eventos:', eventos); // Registra los eventos para depuración
 
   return (
     <div>
@@ -44,4 +46,5 @@ const ResultadosPage: React.FC = () => {
 };
 
 export default ResultadosPage;
+
 
