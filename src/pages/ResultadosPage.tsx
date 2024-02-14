@@ -6,19 +6,21 @@ const ResultadosPage: React.FC = () => {
   const [loading, setLoading] = useState(true); // Inicia en true para reflejar el estado de carga inicial
 
   useEffect(() => {
-    // Cambio: Incluye _populate=* para asegurar que se poblen todas las relaciones, incluidas las imágenes
-    axios.get('http://104.248.12.189:1337/api/meventos?populate=*')
+    setLoading(true);
+    axios.get('http://104.248.12.189:1337/api/meventos')
       .then(response => {
-        console.log('Respuesta del servidor:', response.data);
+        console.log('Respuesta del servidor:', response.data); // Agrega este console.log
         setEventos(response.data.data);
       })
       .catch(error => {
-        console.error('Error al cargar eventos', error);
+        console.error('Error al cargar eventos', error); // Captura y registra errores
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(false); // Finaliza el indicador de carga
       });
   }, []);
+
+  console.log('eventos:', eventos); // Agrega este console.log
 
   return (
     <div>
@@ -47,4 +49,5 @@ const ResultadosPage: React.FC = () => {
 };
 
 export default ResultadosPage;
+
 

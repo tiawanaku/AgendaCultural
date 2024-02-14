@@ -4,13 +4,11 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    legacy()
-  ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
+  plugins: [react()],
+  server: {
+    proxy: {
+      // Usa el endpoint que quieres proxear
+      '/api': 'http://104.248.12.189:1337'
+    }
   }
-})
+});
