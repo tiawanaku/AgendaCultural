@@ -1,7 +1,25 @@
-/* En app.css o en un archivo ImageButtons.css */
+/* Home.css */
+.image-container {
+  display: flex;
+  flex-direction: column; /* Organiza los hijos en columnas */
+  justify-content: center; /* Centra las columnas verticalmente */
+  align-items: center; /* Centra las columnas horizontalmente */
+  height: 100vh; /* Toma el 100% de la altura de la ventana */
+}
+
+.row {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente las imágenes en la fila */
+  align-items: center; /* Centra verticalmente las imágenes en la fila */
+  flex-wrap: wrap; /* Permite que las imágenes se ajusten al tamaño de la pantalla */
+  width: 100%; /* Toma el 100% del ancho del contenedor */
+  margin-bottom: 20px; /* Espacio entre las filas */
+}
+
 .image-button {
-    width: 40px;
-    height: 20px;
-    margin-right: 10px; /* Puedes ajustar este valor según lo necesites */
-  }
-  
+  width: 400px; /* Ancho fijo para las imágenes */
+  height: auto; /* Altura automática para mantener la relación de aspecto */
+  margin: 10px; /* Espacio alrededor de las imágenes */
+  object-fit: contain; /* Asegura que la imagen se ajuste dentro de su contenedor */
+}
+

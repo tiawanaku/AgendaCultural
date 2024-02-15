@@ -1,50 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // Importa Link de react-router-dom
-import axios from 'axios';
-import ImageButton from '../components/ImageButton.jsx';
+// Home.tsx
+// Home.tsx
+import React from "react";
+import { IonPage, IonContent } from "@ionic/react";
+import { Link } from "react-router-dom";
+import Header from "../components/Header.jsx";
+import "./Home.css";
+// Importa las imágenes aquí
+import teatroImage from "../components/assets/teatro.png";
+import museoImage from "../components/assets/museo.png";
+import feriasImage from "../components/assets/ferias.png";
+import centrosculturales from "../components/assets/centrosculturales.png";
 
 const Home: React.FC = () => {
-  const [eventos, setEventos] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const handleButtonClick = (buttonNumber: number) => {
-    if (buttonNumber === 1) {
-      // Realiza la solicitud HTTP al endpoint y actualiza el estado 'eventos'
-      setLoading(true);
-      axios.get('http://104.248.12.189:1337/api/meventos')
-        .then(response => {
-          setEventos(response.data.data);
-        })
-        .catch(error => {
-          console.error('Error al cargar eventos', error);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  };
-
   return (
-    <div>
-      <h1>Home</h1>
-      <div>
-        {/* Utiliza Link para redirigir a otra página cuando se hace clic en la primera imagen */}
-        <Link to="/resultados">
-          <ImageButton
-            src="/assets/teatro_app.JPG"
-            onClick={() => handleButtonClick(1)}
-            className="image-button"
-          />
-        </Link>
-        <ImageButton
-          src="/assets/museo_app.JPG"
-          onClick={() => handleButtonClick(2)}
-          className="image-button"
-        />
-      </div>
-
-      {/* Resto del contenido de la página */}
-    </div>
+    <IonPage>
+      <Header />
+      <IonContent id="main-content" className="ion-padding">
+        <div className="image-container">
+          {/* Botón de imagen para teatros */}
+          <Link to="/teatros">
+            <img src={teatroImage} alt="Teatros" className="image-button" />
+          </Link>
+          {/* Botón de imagen para museos */}
+          <Link to="/museos">
+            <img src={museoImage} alt="Museos" className="image-button" />
+          </Link>
+          {/* Botón de imagen para ferias */}
+          <Link to="/ferias">
+            <img src={feriasImage} alt="Ferias" className="image-button" />
+          </Link>
+          {/* Botón de imagen para centrosculturales */}
+          <Link to="/centrosculturales">
+            <img src={centrosculturales} alt="centrosculturales" className="image-button" />
+          </Link>
+        </div>
+      </IonContent>
+    </IonPage>
   );
 };
 
