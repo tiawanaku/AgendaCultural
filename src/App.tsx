@@ -4,7 +4,7 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import TeatrosPage from './pages/TeatrosPage'; // Asegúrate de que los nombres de importación coincidan
-
+import Museos from './pages/Museos';
 // Importaciones de CSS requeridas para que los componentes de Ionic funcionen correctamente
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
@@ -31,6 +31,7 @@ const App: React.FC = () => (
         {/* Ruta para la página de teatros */}
         <Route exact path="/teatros" component={TeatrosPage} />
         {/* Aquí puedes agregar más rutas según sea necesario */}
+        <Route exact path="/museos" component={Museos} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
