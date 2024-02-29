@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ResultadosPage: React.FC = () => {
+const TeatrosPage: React.FC = () => {
   const [eventos, setEventos] = useState([]);
   const [loading, setLoading] = useState(true); // Inicia en true para reflejar el estado de carga inicial
 
@@ -48,6 +48,6 @@ const ResultadosPage: React.FC = () => {
   );
 };
 
-export default ResultadosPage;
+export default TeatrosPage;
 
 
